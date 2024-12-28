@@ -68,9 +68,9 @@ public class Health : MonoBehaviour
                 }
 
                 dead = true;
-            } 
+            }
         }
-    } 
+    }
 
     public void AddHealth(float _value)
     {

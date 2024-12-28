@@ -41,16 +41,16 @@ public class PlayerAttack : MonoBehaviour
     {
         anim.SetTrigger("attack");
         SoundManager.instance.PlaySound(fireballSound);
-        
+
         //pool fireball
         var firebalIndex = GetAvailableFireball();
         if (firebalIndex is not null)
         {
             fireballs[(int)firebalIndex].transform.position = firePoint.position;
             fireballs[(int)firebalIndex].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
-        } 
+        }
     }
-    
+
     private int ?GetAvailableFireball()
     {
         for (int i = 0; i < fireballs.Length; i++)
