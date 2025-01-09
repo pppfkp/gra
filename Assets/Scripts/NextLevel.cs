@@ -6,10 +6,10 @@ public class NextLevel : MonoBehaviour
 {
     [SerializeField] private int nextLevel;
 
-    // Trigger detection for entering the collider
+    // wykrywanie postaci w portalu i przenoszenie do następnego poziomu
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // Check if the object entering has the Player tag
+        if (other.CompareTag("Player"))  // wykrywanie czy postać weszła do portalu
         {
             SceneManager.LoadScene(nextLevel);
         }

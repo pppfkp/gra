@@ -24,7 +24,7 @@ public class Enemy_Sideways : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    // sterowanie poruszaniem pułapki
     void Update()
     {
         if (movingLeft)
@@ -49,6 +49,7 @@ public class Enemy_Sideways : MonoBehaviour
         }
     }
 
+    // zadawanie obrazeń graczowi
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")

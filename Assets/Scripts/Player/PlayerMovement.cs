@@ -28,13 +28,13 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
 
-        // Walking
+        // chodzenie postaci
         if (!isWallSliding)
         {
             body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
         }
 
-        // Flipping player horizontally when moving 
+        // 
         if (horizontalInput > 0.01f)
         {
             transform.localScale = Vector3.one;
@@ -44,13 +44,13 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        // Jumping
+        // skakanie
         if (Input.GetKey(KeyCode.Space) && IsGrounded())
         {
             Jump();
         }
 
-        // Wall Slide
+        // poruszanie się 
         if (OnWall() && !IsGrounded())
         {
             isWallSliding = true;
@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
             isWallSliding = false;
         }
 
-        // Wall Jump
+        // podskok do góry postaci
         if (wallJumpTimer > wallJumpCooldown)
         {
             if (Input.GetKey(KeyCode.Space) && isWallSliding)
@@ -75,10 +75,8 @@ public class PlayerMovement : MonoBehaviour
             wallJumpTimer += Time.deltaTime;
         }
 
-        // Set animator parameters
         anim.SetBool("run", horizontalInput != 0);
         anim.SetBool("grounded", IsGrounded());
-        // anim.SetBool("wallSlide", isWallSliding);
     }
 
     private void Jump()
@@ -89,7 +87,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void WallJump()
     {
-        // Invert x-direction for wall jump to push player away from wall
         body.velocity = new Vector2(-transform.localScale.x * speed, jumpSpeed);
         anim.SetTrigger("jump");
     }

@@ -4,6 +4,7 @@
 
     public class SoundManager : MonoBehaviour
     {
+        // ustawianie właściwości muzyki
         public static SoundManager instance { get; private set; }
         private AudioSource source;
 
