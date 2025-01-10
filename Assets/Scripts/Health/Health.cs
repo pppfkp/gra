@@ -40,6 +40,7 @@ public class Health : MonoBehaviour
         //}
     }
 
+    // sterowanie otrzymywaniem obrażeń od przeciwników
     public void TakeDamage(float _damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
@@ -76,6 +77,7 @@ public class Health : MonoBehaviour
         }
     }
 
+    // dodawanie zdrowia po zjedzeniu wiśni
     public void AddHealth(float _value)
     {
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
@@ -83,11 +85,9 @@ public class Health : MonoBehaviour
 
     private IEnumerator DisappearAfterDeath()
     {
-        // Wait for the "dead" animation to finish
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
 
-        // Destroy or deactivate the object
-        Destroy(gameObject); // Or use gameObject.SetActive(false) to deactivate it
+        Destroy(gameObject); 
     }
 
     private IEnumerator RestartLevelAfterDeath()

@@ -42,6 +42,7 @@ public class MeleeEnemy : MonoBehaviour
         }
     }
 
+    // ustawianie położenia postaci na planszy
     private bool PlayerInSight()
     {
         RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
@@ -62,6 +63,7 @@ public class MeleeEnemy : MonoBehaviour
        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance, new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
     }
 
+    // zadawanie obrażeń graczowi
     private void DamagePlayer()
     {
         if (PlayerInSight())

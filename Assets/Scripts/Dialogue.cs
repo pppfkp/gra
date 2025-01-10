@@ -5,37 +5,37 @@ using UnityEngine.UI;
 
 public class WelcomingDialogue : MonoBehaviour
 {
-    [SerializeField] private Text dialogue; // Reference to the Text UI element
-    [SerializeField] private string message = "Welcome to the area!"; // The message to display
+    [SerializeField] private Text dialogue;
+    [SerializeField] private string message = "Welcome to the area!"; // Przykładowa wiadomość do wyświetlenia
 
     private void Start()
     {
         if (dialogue != null)
         {
-            dialogue.text = ""; // Ensure the dialogue box is initially empty
+            dialogue.text = ""; // Czyszczenie pola dialogu
         }
     }
 
-    // Trigger detection for entering the collider
+    // "Włączanie" wyświetlenia dialogu
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // Check if the object entering has the Player tag
+        if (other.CompareTag("Player"))
         {
             if (dialogue != null)
             {
-                dialogue.text = message; // Show the message
+                dialogue.text = message;
             }
         }
     }
 
-    // Trigger detection for exiting the collider
+    // "Wyłączanie" wyświetlenia dialogu
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // Check if the object exiting has the Player tag
+        if (other.CompareTag("Player"))
         {
             if (dialogue != null)
             {
-                dialogue.text = ""; // Clear the message
+                dialogue.text = ""; // Czyszczenie wiadomości
             }
         }
     }

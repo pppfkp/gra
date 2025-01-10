@@ -37,12 +37,13 @@ public class PlayerAttack : MonoBehaviour
 
     }
 
+    // atakowanie przeciwników przez gracza
     private void Attack()
     {
         anim.SetTrigger("attack");
         SoundManager.instance.PlaySound(fireballSound);
 
-        //pool fireball
+        // "wystrzeliwanie ognistych kul"
         var firebalIndex = GetAvailableFireball();
         if (firebalIndex is not null)
         {
@@ -51,6 +52,7 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    // obliczanie ilości dostępnych ognistych kul
     private int ?GetAvailableFireball()
     {
         for (int i = 0; i < fireballs.Length; i++)

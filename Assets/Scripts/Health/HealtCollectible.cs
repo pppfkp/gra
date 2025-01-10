@@ -7,6 +7,7 @@ public class HealtCollectible : MonoBehaviour
     [SerializeField] private float healthValue;
     // Start is called before the first frame update
 
+    // ustawianie wartości zdrowia na początku poziomu
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
