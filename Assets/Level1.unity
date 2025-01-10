@@ -1338,7 +1338,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.2, y: -23.23, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.2486, y: 3.2486, z: 3.2486}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1872,6 +1872,10 @@ PrefabInstance:
     - target: {fileID: 5347555544407856520, guid: 2ebfc955dd32c6746b4049c7456206c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831047536638443142, guid: 2ebfc955dd32c6746b4049c7456206c3, type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8015228574111894463, guid: 2ebfc955dd32c6746b4049c7456206c3, type: 3}
       propertyPath: m_Name
@@ -2676,7 +2680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 194033922616877586, guid: 9c73f0b5d282db04c907889976e9ed73, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.645885
+      value: -10.52
       objectReference: {fileID: 0}
     - target: {fileID: 194033922616877586, guid: 9c73f0b5d282db04c907889976e9ed73, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3652,6 +3656,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5831047536638443142, guid: 2ebfc955dd32c6746b4049c7456206c3, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8015228574111894463, guid: 2ebfc955dd32c6746b4049c7456206c3, type: 3}
       propertyPath: m_Name
       value: MeleeEnemy
@@ -3826,6 +3834,11 @@ PrefabInstance:
     - target: {fileID: 194033922616877586, guid: 9c73f0b5d282db04c907889976e9ed73, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1953793753459015826, guid: 9c73f0b5d282db04c907889976e9ed73, type: 3}
+      propertyPath: message
+      value: "Uratuj swoj\u0105 krain\u0119 przed ciemnymi mocami uwolnionymi przez
+        staro\u017Cytnego z\u0142oczy\u0144c\u0119!"
       objectReference: {fileID: 0}
     - target: {fileID: 1953793753459015826, guid: 9c73f0b5d282db04c907889976e9ed73, type: 3}
       propertyPath: dialogue

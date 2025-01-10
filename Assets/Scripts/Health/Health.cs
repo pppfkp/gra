@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
@@ -56,6 +57,9 @@ public class Health : MonoBehaviour
                 if (GetComponent<PlayerMovement>() != null)
                 {
                     GetComponent<PlayerMovement>().enabled = false;
+
+                    // Start coroutine to restart the level after the animation
+                    StartCoroutine(RestartLevelAfterDeath());
                 }
 
                 //Enemy
@@ -84,5 +88,14 @@ public class Health : MonoBehaviour
 
         // Destroy or deactivate the object
         Destroy(gameObject); // Or use gameObject.SetActive(false) to deactivate it
+    }
+
+    private IEnumerator RestartLevelAfterDeath()
+    {
+        // Wait for the "dead" animation to finish
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+
+        // Reload the current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
