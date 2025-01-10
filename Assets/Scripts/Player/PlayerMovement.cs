@@ -16,25 +16,28 @@ public class PlayerMovement : MonoBehaviour
     private float wallJumpTimer;
     private bool isWallSliding;
     private float horizontalInput;
+    private float originalSpeed; // Store the original speed
+
+    private Coroutine speedBoostCoroutine; // Reference to the speed boost coroutine
 
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+        originalSpeed = speed; // Store the initial speed
     }
 
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
 
-        // chodzenie postaci
+        // Movement logic
         if (!isWallSliding)
         {
             body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
         }
 
-        // 
         if (horizontalInput > 0.01f)
         {
             transform.localScale = Vector3.one;
@@ -44,24 +47,21 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        // skakanie
         if (Input.GetKey(KeyCode.Space) && IsGrounded())
         {
             Jump();
         }
 
-        // poruszanie się 
         if (OnWall() && !IsGrounded())
         {
             isWallSliding = true;
-            body.velocity = new Vector2(body.velocity.x, -wallSlideSpeed); 
+            body.velocity = new Vector2(body.velocity.x, -wallSlideSpeed);
         }
         else
         {
             isWallSliding = false;
         }
 
-        // podskok do góry postaci
         if (wallJumpTimer > wallJumpCooldown)
         {
             if (Input.GetKey(KeyCode.Space) && isWallSliding)
@@ -104,7 +104,26 @@ public class PlayerMovement : MonoBehaviour
         return raycastHit1.collider != null || raycastHit2.collider != null;
     }
 
-    public bool CanAttack() {
+    public bool CanAttack()
+    {
         return horizontalInput == 0 && IsGrounded() && !OnWall();
+    }
+
+    // Method to apply a speed boost
+    public void ApplySpeedBoost(float boostValue, float duration)
+    {
+        if (speedBoostCoroutine != null)
+        {
+            StopCoroutine(speedBoostCoroutine); // Stop any existing speed boost
+        }
+
+        speedBoostCoroutine = StartCoroutine(SpeedBoostCoroutine(boostValue, duration));
+    }
+
+    private IEnumerator SpeedBoostCoroutine(float boostValue, float duration)
+    {
+        speed += boostValue; // Increase speed
+        yield return new WaitForSeconds(duration);
+        speed = originalSpeed; // Reset speed to the original value
     }
 }

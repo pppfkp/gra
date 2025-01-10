@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5075520067925845033}
   - component: {fileID: 1090046128239875167}
   m_Layer: 0
-  m_Name: HealthCollectible
+  m_Name: HealthCollectibleCherry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
