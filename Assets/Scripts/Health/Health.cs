@@ -63,10 +63,28 @@ public class Health : MonoBehaviour
                     StartCoroutine(RestartLevelAfterDeath());
                 }
 
-                //Enemy
+                //Enemy Melee
                 if (GetComponent<MeleeEnemy>() != null)
                 {
                     GetComponent<MeleeEnemy>().enabled = false;
+
+                    // Start coroutine to disappear after the animation
+                    StartCoroutine(DisappearAfterDeath());
+                }
+
+                //Enemy Melee
+                if (GetComponent<MeleeWalkingEnemy>() != null)
+                {
+                    GetComponent<MeleeWalkingEnemy>().enabled = false;
+
+                    // Start coroutine to disappear after the animation
+                    StartCoroutine(DisappearAfterDeath());
+                }
+
+                //Enemy Melee
+                if (GetComponent<MeleeJumpingEnemy>() != null)
+                {
+                    GetComponent<MeleeJumpingEnemy>().enabled = false;
 
                     // Start coroutine to disappear after the animation
                     StartCoroutine(DisappearAfterDeath());
